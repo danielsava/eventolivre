@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Evento Livre</title>
+            </f:facet>
+            <h:outputStylesheet library="css" name="padrao.css" />
+    </h:head>
+    <h:body>
+      
+       
+        <br />
+        <div id="conteudo" class="conteúdo">
+            <h:form id="form">
+            <p:outputPanel id="tudo">
+            <p:outputPanel rendered="#{inscricaoBean.inscrito}">
+                <p:panel header="Inscriçao realizada com sucesso!">
+                    
+                    Te esperamos no <h:outputText value="#{inscricaoBean.evento.nome}"/>!
+                </p:panel>
+            </p:outputPanel>
+            
+            
+            <p:panel rendered="#{not inscricaoBean.inscrito}" header="Inscrição">
+                
+                <h:panelGrid id="panelCentral" columns="3">
+                    <p:outputLabel for="evento" value="Nome:"/>
+                    <p:selectOneMenu id="evento" value="#{inscricaoBean.participante.evento.id}" style="width: 268px;" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}">
+                        <f:selectItem itemLabel="Selececione" itemValue=""/>
+                        <f:selectItems value="#{listaBean.eventos}" var="evento" itemLabel="#{evento.nome}" itemValue="#{evento.id}"  />
+                    </p:selectOneMenu>
+                    <p:message  for="evento" /> 
+                    <p:outputLabel for="nome" value="Nome:"  />
+                    <p:inputText id="nome" value="#{inscricaoBean.participante.nome}" styleClass="camposEntrada" maxlength="80" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}" />
+                    <p:message  for="nome" /> 
+                    <p:outputLabel for="email" value="Email:"/>
+                    <p:inputText id="email" value="#{inscricaoBean.participante.email}" styleClass="camposEntrada" maxlength="80" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}"/>
+                    <p:message  for="email" /> 
+                    <p:outputLabel for="instituicao" value="Instituição:"/>
+                    
+                    <p:autoComplete id="instituicao" dropdown="true" value="#{inscricaoBean.participante.instituicao}"   maxlength="60" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}"
+                                    minQueryLength="1"   maxResults="5"  size="31"        completeMethod="#{inscricaoBean.complete}" />
+                    <p:message  for="instituicao" /> 
+                    
+                    
+                    <p:commandButton value="Salvar" action="#{inscricaoBean.salvar()}" update=":form:tudo"/>
+                </h:panelGrid>
+                
+            </p:panel>
+            
+</p:outputPanel>            
+                </h:form>
+        </div> 
+    </h:body>
+</html>
+
