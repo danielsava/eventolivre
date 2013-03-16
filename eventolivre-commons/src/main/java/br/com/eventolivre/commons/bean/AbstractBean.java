@@ -2,6 +2,7 @@ package br.com.eventolivre.commons.bean;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,9 +20,9 @@ public class AbstractBean implements Serializable {
     
     private static final long serialVersionUID = 958520337356026828L;
 
-//    static {
-////        Locale.setDefault(new Locale("pt", "BR"));
-//    }
+    static {
+        Locale.setDefault(new Locale("pt", "BR"));
+    }
 
     protected void adicionarMensagemAviso(String mensagem) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, mensagem, null));
