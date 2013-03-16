@@ -43,8 +43,8 @@
                     <p:message  for="email" /> 
                     <p:outputLabel for="instituicao" value="Instituição:"/>
                     
-                    <p:autoComplete id="instituicao" dropdown="true" value="#{inscricaoBean.participante.instituicao}"   maxlength="60" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}"
-                                    minQueryLength="1"   maxResults="5"  size="31"        completeMethod="#{inscricaoBean.complete}" />
+                    <p:autoComplete id="instituicao" dropdown="false" value="#{inscricaoBean.participante.instituicao}"   maxlength="60" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}"
+                                    minQueryLength="1"   maxResults="5"  size="38"        completeMethod="#{inscricaoBean.complete}" />
                     <p:message  for="instituicao" /> 
                     
                     
