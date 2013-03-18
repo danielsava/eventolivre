@@ -26,7 +26,7 @@ public class Participante extends  AbstractModel<Long> {
     
     @Column(name="nome")
     @NotNull
-    @Size(min = 10, max = 80,message=" O nome deverá ter no mímimo 5 caracteres")
+    @Size(min = 10, max = 80,message="O nome deverá ter o mínimo de 10 e o máximo 80 caracteres")
     private String nome;
     
     @Column(name="email")
