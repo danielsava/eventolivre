@@ -4,10 +4,9 @@
     <parent>
     <artifactId>eventolivre</artifactId>
     <groupId>br.com.eventolivre</groupId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
   </parent>
 
-    <groupId>br.com.eventolivre</groupId>
     <artifactId>evento</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
@@ -32,7 +31,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>eventolivre-service</artifactId>
-            <version>${project.version}</version>
+            <version>${service.version}</version>
       
         </dependency>
         

@@ -3,9 +3,20 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.eventolivre</groupId>
   <artifactId>eventolivre</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <packaging>pom</packaging>
   <name>eventolivre</name>
+  
+  
+  
+   <properties>
+    <commons.version>1.1.1</commons.version>
+    <service.version>1.0.0</service.version>
+    <evento.version>1.0.0</evento.version>
+    <model.version>1.1.0</model.version>
+  </properties>
+  <url>https://github.com/otaviojava/eventolivre</url>
+  
     <build>
         <plugins>
             <plugin>

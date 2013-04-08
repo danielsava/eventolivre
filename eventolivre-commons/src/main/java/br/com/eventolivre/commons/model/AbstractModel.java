@@ -6,7 +6,7 @@ package br.com.eventolivre.commons.model;
  */
 public  abstract class AbstractModel<T> implements BaseModel<T> {
     
-	private static final int HASH_CODE = 83;
+	private static final int HASH_CODE = 31;
 	private static final int HASH_VALUE = 3;
 	private static final long serialVersionUID = -119307763575509876L;
 
@@ -27,7 +27,6 @@ public  abstract class AbstractModel<T> implements BaseModel<T> {
 
     @Override
     public int hashCode() {
-        int hash = HASH_VALUE;
-        return HASH_CODE * hash + (this.getId() != null ? this.getId().hashCode() : 0);
+        return HASH_CODE * HASH_VALUE + (this.getId() != null ? this.getId().hashCode() : 0);
     }
 }

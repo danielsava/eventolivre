@@ -18,7 +18,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="participante")
 public class Participante extends  AbstractModel<Long> {
-    
+
+    private static final int MINIMO_NOME=10;
+    private static final int MAXIMO_NOME=80;
     @Id
     @Column(name="id")
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -26,7 +28,7 @@ public class Participante extends  AbstractModel<Long> {
     
     @Column(name="nome")
     @NotNull
-    @Size(min = 10, max = 80,message="O nome deverá ter o mínimo de 10 e o máximo 80 caracteres")
+    @Size(min = MINIMO_NOME, max = MAXIMO_NOME,message="O nome deverá ter o mínimo de 10 e o máximo 80 caracteres")
     private String nome;
     
     @Column(name="email")

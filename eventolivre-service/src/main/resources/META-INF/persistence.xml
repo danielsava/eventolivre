@@ -5,6 +5,12 @@
     <jta-data-source>jdbc/evento</jta-data-source>
     <class>br.com.eventolivre.model.Evento</class>
     <class>br.com.eventolivre.model.Participante</class>
+    <class>br.com.eventolivre.model.Atividade</class>
+    <class>br.com.eventolivre.model.Sala</class>
+    <class>br.com.eventolivre.model.TipoEvento</class>
+    <class>br.com.eventolivre.model.local.Cidade</class>
+    <class>br.com.eventolivre.model.local.Estado</class>
+    <class>br.com.eventolivre.model.local.Pais</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.show_sql" value="true"/>
