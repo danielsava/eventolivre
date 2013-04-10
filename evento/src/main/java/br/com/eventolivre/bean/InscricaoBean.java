@@ -1,6 +1,7 @@
 
 package br.com.eventolivre.bean;
 
+import br.com.eventolivre.service.email.EnvioEmail;
 import br.com.eventolivre.bean.cache.EventoCache;
 import br.com.eventolivre.commons.bean.AbstractBean;
 import br.com.eventolivre.model.Evento;
@@ -24,6 +25,9 @@ public class InscricaoBean  extends AbstractBean{
     private Participante participante;
     
     private boolean inscrito=false;
+    
+    @Inject
+    private EnvioEmail envioEmail;
     
     @Inject
     private EmailValidator validador;
@@ -63,6 +67,7 @@ public class InscricaoBean  extends AbstractBean{
         participante.setEvento(evento);
         participante.setPresente(Boolean.FALSE);
         participanteService.create(participante);
+        envioEmail.enviarConfirmacao(participante);
         participante=new Participante();
         inscrito=true;
         
@@ -71,6 +76,7 @@ public class InscricaoBean  extends AbstractBean{
         
     }
     
+ 
     public List<String> complete(String query) {  
     
     return participanteService.getInstituicoes(query);
