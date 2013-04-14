@@ -17,7 +17,16 @@
         <br />
         <div id="conteudo" class="conteúdo">
             <h:form id="form">
+            
+            <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();" onerror="statusDialog.hide();" /> 
+            
+            <p:dialog modal="true" widgetVar="statusDialog" header="Processando" draggable="false" closable="false">  
+                <p:graphicImage  library="images" name="progress.gif" />  
+            </p:dialog> 
+            
+                
             <p:outputPanel id="tudo">
+                
             <p:outputPanel rendered="#{inscricaoBean.inscrito}">
                 <p:panel header="Inscriçao realizada com sucesso!">
                     
@@ -29,20 +38,26 @@
             <p:panel rendered="#{not inscricaoBean.inscrito}" header="Inscrição">
                 
                 <h:panelGrid id="panelCentral" columns="3">
+                    
                     <p:outputLabel for="evento" value="Nome:"/>
+                    
                     <p:selectOneMenu id="evento" value="#{inscricaoBean.participante.evento.id}" style="width: 268px;" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}">
                         <f:selectItem itemLabel="Selececione" itemValue=""/>
                         <f:selectItems value="#{listaBean.eventos}" var="evento" itemLabel="#{evento.nome}" itemValue="#{evento.id}"  />
                     </p:selectOneMenu>
                     <p:message  for="evento" /> 
+                    
                     <p:outputLabel for="nome" value="Nome:"  />
                     <p:inputText id="nome" value="#{inscricaoBean.participante.nome}" styleClass="camposEntrada" maxlength="80" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}" />
                     <p:message  for="nome" /> 
-                    <p:outputLabel for="email" value="Email:"/>
-                    <p:inputText id="email" value="#{inscricaoBean.participante.email}" styleClass="camposEntrada" maxlength="80" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}"/>
-                    <p:message  for="email" /> 
-                    <p:outputLabel for="instituicao" value="Instituição:"/>
                     
+                    <p:outputLabel for="email" value="Email:"/>
+                    <p:inputText id="email" value="#{inscricaoBean.participante.email}" styleClass="camposEntrada" maxlength="80" >
+                       <f:validator validatorId="EmailValidator" /> 
+                    </p:inputText>
+                    <p:message  for="email" /> 
+                    
+                    <p:outputLabel for="instituicao" value="Instituição:"/>
                     <p:autoComplete id="instituicao" dropdown="false" value="#{inscricaoBean.participante.instituicao}"   maxlength="60" required="true" requiredMessage="#{mensagemBean.mensagemObrigatorio}"
                                     minQueryLength="1"   maxResults="5"  size="38"        completeMethod="#{inscricaoBean.complete}" />
                     <p:message  for="instituicao" /> 
