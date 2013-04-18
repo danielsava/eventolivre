@@ -21,6 +21,7 @@ public class Atividade extends AbstractModel<Long>{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    
     @Column(nullable = false)
     private Integer ordem;
     
