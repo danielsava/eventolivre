@@ -21,9 +21,9 @@ public class EventoDAO extends AbstractDAO<Evento> {
     
     
     public List<Evento> listarEventosAtuais(){
-        StringBuilder sql=new StringBuilder();
-        sql.append(" from Evento where data >=:dataAtual");
-        Query query=getEntityManager().createQuery(sql.toString());
+        StringBuilder jpql=new StringBuilder();
+        jpql.append(" from Evento where data >=:dataAtual");
+        Query query=getEntityManager().createQuery(jpql.toString());
         query.setParameter("dataAtual", new Date());
         return query.getResultList();
     }
