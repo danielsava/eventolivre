@@ -8,7 +8,7 @@
     <version>1.1.0</version>
   </parent>
   
-  <version>1.1.1</version>
+  <version>1.2.1</version>
    <artifactId>eventolivre-model</artifactId>
   <name>eventolivre-model</name>
   <url>https://github.com/otaviojava/eventolivre</url>

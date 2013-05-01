@@ -31,16 +31,16 @@ public class Atividade extends AbstractModel<Long>{
     @Column(nullable = false)
     private String tipo;
     
-    @Column(nullable = false)
+    @Column(nullable = false,length = 200)
     private String titulo;
     
-    @Column(nullable = false)
+    @Column(nullable = false,length = 500)
     private String descricao;
     
     @Column(nullable = false)
     private String palestrante;
     
-    @Column(nullable = false)
+    @Column(nullable = false,length = 500)
     private String bio;
 
     @ManyToOne

@@ -21,6 +21,8 @@ public class Participante extends  AbstractModel<Long> {
 
     private static final int MINIMO_NOME=10;
     private static final int MAXIMO_NOME=80;
+    private static final String PRESENTE="Presente";
+    private static final String AUSENTE="Ausente";
     @Id
     @Column(name="id")
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -42,8 +44,15 @@ public class Participante extends  AbstractModel<Long> {
     @Column(name="presente")
     private Boolean presente;
     
+    @Column(name="enviado")
+    private Boolean enviado;
+    
     @ManyToOne
     private Evento evento;
+    
+    public String getStatus(){
+        return presente?PRESENTE:AUSENTE;
+    }
 
     public Long getId() {
         return id;
@@ -96,6 +105,14 @@ public class Participante extends  AbstractModel<Long> {
     public Participante() {
         
         evento=new Evento();
+    }
+
+    public Boolean getEnviado() {
+        return enviado;
+    }
+
+    public void setEnviado(Boolean enviado) {
+        this.enviado = enviado;
     }
     
     
