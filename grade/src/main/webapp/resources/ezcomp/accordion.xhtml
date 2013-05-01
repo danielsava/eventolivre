@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="value" required="true"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <div data-role="collapsible-set">
+
+            <ui:repeat value="#{cc.attrs.value}" var="atividade">
+                <div data-role="collapsible">
+                    <h3><h:outputText value="#{atividade.titulo}"/></h3>
+                    <p><b>Horário:  </b> <h:outputText value="#{atividade.horario}"/></p>
+                    <p><b>Descricao:  </b> <h:outputText value="#{atividade.descricao}"/></p>
+                    <p><b>Palestrante:  </b> <h:outputText value="#{atividade.palestrante}"/></p>
+                    <p><b>Bio:  </b> <h:outputText value="#{atividade.bio}"/></p>
+                </div>
+            </ui:repeat>
+        </div>  
+    </cc:implementation>
+</html>

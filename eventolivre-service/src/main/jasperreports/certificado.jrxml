@@ -11,9 +11,9 @@
 				<imageExpression><![CDATA["/home/otaviojava/Ambiente/codigo/workspace-eventolivre/eventolivre/eventolivre-service/src/main/resources/imagens/certificado.png"]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement uuid="db68344b-7b3e-4275-819e-9efed8eab3f3" x="40" y="293" width="709" height="25"/>
+				<reportElement uuid="db68344b-7b3e-4275-819e-9efed8eab3f3" x="22" y="293" width="743" height="25"/>
 				<textElement textAlignment="Center">
-					<font size="16" isBold="true"/>
+					<font size="18" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>

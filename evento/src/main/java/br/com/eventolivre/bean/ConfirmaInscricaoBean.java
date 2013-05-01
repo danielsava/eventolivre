@@ -1,8 +1,9 @@
 package br.com.eventolivre.bean;
 
+import br.com.eventolivre.commons.bean.AbstractBean;
 import br.com.eventolivre.model.Participante;
+import br.com.eventolivre.service.EventoService;
 import br.com.eventolivre.service.ParticipanteService;
-import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  */
 @ManagedBean
 @ViewScoped
-public class ConfirmaInscricaoBean implements  Serializable{
+public class ConfirmaInscricaoBean extends AbstractBean{
     
     private Long codigoEvento;
     
@@ -26,6 +27,9 @@ public class ConfirmaInscricaoBean implements  Serializable{
     
     @Inject
     private ParticipanteService participanteService;
+    
+    @Inject
+    private EventoService eventoService;
 
     public List<Participante> getParticipantes() {
         return participantes;
@@ -88,6 +92,7 @@ public class ConfirmaInscricaoBean implements  Serializable{
     }
     
     public void gerarCertificado(){
-    participanteService.gerarCertificados(codigoEvento);
+        eventoService.gerarCertificado(codigoEvento);
+        adicionarMensagemInfo("Agendado o envio de Email para esse evento");
     }
 }

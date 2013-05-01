@@ -8,9 +8,7 @@
     <class>br.com.eventolivre.model.Atividade</class>
     <class>br.com.eventolivre.model.Sala</class>
     <class>br.com.eventolivre.model.TipoEvento</class>
-    <class>br.com.eventolivre.model.local.Cidade</class>
-    <class>br.com.eventolivre.model.local.Estado</class>
-    <class>br.com.eventolivre.model.local.Pais</class>
+    <class>br.com.eventolivre.model.InformacaoEvento</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.show_sql" value="true"/>

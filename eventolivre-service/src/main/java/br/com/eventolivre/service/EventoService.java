@@ -26,4 +26,13 @@ public class EventoService extends AbstractService<Evento>  {
      public List<Evento> listarEventosAtuais(){
      return eventoDAO.listarEventosAtuais();
      }
+     
+     public List<Evento> listarEventosCertificados(){
+         return eventoDAO.listarEventosCertificados();
+     }
+
+    public void gerarCertificado(Long codigoEvento) {
+        eventoDAO.gerarCertificado(codigoEvento);
+    }
+     
 }

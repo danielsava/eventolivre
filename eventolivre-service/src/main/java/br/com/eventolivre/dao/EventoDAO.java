@@ -28,4 +28,22 @@ public class EventoDAO extends AbstractDAO<Evento> {
         return query.getResultList();
     }
             
+    public List<Evento> listarEventosCertificados(){
+        StringBuilder jpql=new StringBuilder();
+        jpql.append(" from Evento where enviarCeritificado =:enviarCeritificado ");
+        Query query=getEntityManager().createQuery(jpql.toString());
+        query.setParameter("enviarCeritificado", Boolean.TRUE);
+        return query.getResultList();
+        
+        
+    }
+
+    public void gerarCertificado(Long codigoEvento) {
+        StringBuilder jpql=new StringBuilder();
+        jpql.append(" update Evento set enviarCeritificado=:enviarCeritificado  where id =:id");
+        Query query=getEntityManager().createQuery(jpql.toString());
+        query.setParameter("id", codigoEvento);
+        query.setParameter("enviarCeritificado", Boolean.TRUE);
+        query.executeUpdate();
+    }
 }

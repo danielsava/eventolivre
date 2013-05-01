@@ -16,7 +16,7 @@ public class CertificadoVO implements  Serializable{
     
     private Long codigoParticipante;
     
-    private File certificado;
+    private byte[] certificado;
 
     private String assunto;
     
@@ -46,11 +46,13 @@ public class CertificadoVO implements  Serializable{
         this.codigoParticipante = codigoParticipante;
     }
 
-    public File getCertificado() {
+    public byte[] getCertificado() {
         return certificado;
     }
 
-    public void setCertificado(File certificado) {
+    public void setCertificado(byte[] certificado) {
+        this.certificado=new byte[certificado.length];
+        System.arraycopy(certificado, 0, this.certificado, 0, certificado.length);
         this.certificado = certificado;
     }
 
@@ -71,7 +73,7 @@ public class CertificadoVO implements  Serializable{
     }
     
     
-    public CertificadoVO(Participante participante,File certificado){
+    public CertificadoVO(Participante participante,byte[] certificado){
         this.codigoParticipante=participante.getId();
         this.email=participante.getEmail();
         this.nome=participante.getNome();

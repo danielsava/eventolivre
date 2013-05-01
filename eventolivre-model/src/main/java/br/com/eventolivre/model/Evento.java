@@ -1,7 +1,6 @@
 package br.com.eventolivre.model;
 
 import br.com.eventolivre.commons.model.AbstractModel;
-import br.com.eventolivre.model.local.Cidade;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -40,15 +39,18 @@ public class Evento extends AbstractModel<Long> {
     @OneToMany(mappedBy="evento")
     private List<Participante> participantes;
     
-    
-    @ManyToOne
-    @JoinColumn(name = "cidade")
-    private Cidade cidade;
    
     @ManyToOne
     @JoinColumn(name = "tipo_evento")
     private TipoEvento tipoEvento;
 
+    @ManyToOne
+    @JoinColumn(name = "informacao_evento")
+    private InformacaoEvento informacaoEvento;
+    
+    @Column(name="enviar_certificado")
+    private Boolean enviarCeritificado;
+    
     public Long getId() {
         return id;
     }
@@ -81,13 +83,6 @@ public class Evento extends AbstractModel<Long> {
         this.participantes = participantes;
     }
 
-    public Cidade getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
 
     public TipoEvento getTipoEvento() {
         return tipoEvento;
@@ -95,6 +90,22 @@ public class Evento extends AbstractModel<Long> {
 
     public void setTipoEvento(TipoEvento tipoEvento) {
         this.tipoEvento = tipoEvento;
+    }
+
+    public InformacaoEvento getInformacaoEvento() {
+        return informacaoEvento;
+    }
+
+    public void setInformacaoEvento(InformacaoEvento informacaoEvento) {
+        this.informacaoEvento = informacaoEvento;
+    }
+
+    public Boolean getEnviarCeritificado() {
+        return enviarCeritificado;
+    }
+
+    public void setEnviarCeritificado(Boolean enviarCeritificado) {
+        this.enviarCeritificado = enviarCeritificado;
     }
 
     

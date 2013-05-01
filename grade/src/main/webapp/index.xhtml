@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:open="http://java.sun.com/jsf/composite/ezcomp">
+
+    <h:head>
+    </h:head>
+    <pm:page title="#{mensagemBean.titulo}">
+
+        <pm:view id="main">
+            <pm:header title="#{mensagemBean.titulo}" >
+                <ui:include src="/template/menu.xhtml"/>
+
+
+
+            </pm:header>
+            <pm:content>
+                <h:form id="form" >
+                <p:dataList value="#{eventoBean.eventos}" var="evento">
+                    
+                    <p:commandLink action="#{salaBean.selecionar}"  >
+                        <f:setPropertyActionListener target="#{salaBean.codigoEvento}" value="#{evento.id}"/>
+                        <h:outputText value="#{evento.nome}"  />
+                    </p:commandLink>
+                </p:dataList>
+                </h:form>
+
+            </pm:content>
+        </pm:view>
+        
+        <pm:view id="salas">
+            <pm:header title="#{mensagemBean.titulo}" >
+                <f:facet name="right">
+                    <f:facet name="left"><p:button value="Voltar" icon="back" href="#main?reverse=true"/></f:facet>
+	       	</f:facet>
+                <ui:include src="/template/menu.xhtml"/>
+            </pm:header>
+            
+            <pm:content>
+                <h:form id="formSalas" >
+                    <p:dataList value="#{salaBean.salas}" var="sala">
+                    
+                     <p:commandLink action="#{atividadeBean.selecionar}" >
+                        <f:setPropertyActionListener target="#{atividadeBean.codigoSala}" value="#{sala.id}"/>
+                        <h:outputText value="#{sala.nome}"  />
+                    </p:commandLink>
+                </p:dataList>
+                </h:form>
+
+            </pm:content>
+        </pm:view>
+        
+        <pm:view id="atividades">
+            <pm:header title="#{mensagemBean.titulo}" >
+                <f:facet name="right">
+                    <f:facet name="left"><p:button value="Voltar" icon="back" href="#salas?reverse=true"/></f:facet>
+	       	</f:facet>
+                <ui:include src="/template/menu.xhtml"/>
+            </pm:header>
+            
+            <pm:content>
+                <h:form id="formAtividades" >
+                    
+                    <open:accordion value="#{atividadeBean.atividades}"/>
+                    
+                </h:form>
+
+            </pm:content>
+        </pm:view>
+        
+        
+        
+    </pm:page>
+</f:view>

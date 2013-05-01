@@ -4,7 +4,7 @@ import br.com.eventolivre.model.vo.CertificadoVO;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
+import javax.activation.DataSource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -13,6 +13,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.util.ByteArrayDataSource;
 
 /**
  *
@@ -32,9 +33,9 @@ public class GerarCertificadoMensagem implements  GerarMensagem{
         menssagemParte.setText(certificadoVO.getMensagem());
         
         MimeBodyPart anexoParte = new MimeBodyPart();
-        FileDataSource fileDataSource = new FileDataSource(certificadoVO.getCertificado());
+        DataSource fileDataSource = new ByteArrayDataSource(certificadoVO.getCertificado(), "application/pdf");
         anexoParte.setDataHandler(new DataHandler(fileDataSource));
-        anexoParte.setFileName(fileDataSource.getName());
+        anexoParte.setFileName("certificado.pdf");
 
         
         Multipart conteudo = new MimeMultipart();
