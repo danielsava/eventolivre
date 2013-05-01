@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Evento Livre</title>
+            </f:facet>
+            <h:outputStylesheet library="css" name="padrao.css" />
+    </h:head>
+    <h:body>
+      
+       
+        <br />
+        <div id="Admconteudo" class="conteúdo">
+            <h:form id="form">
+             
+                <p:outputPanel id="tudo">
+           
+                    <p:growl id="growl" showDetail="true" sticky="true" life="2000" />  
+            <br/><br/>
+            <p:commandButton value="Gerar Certificados" action="#{confirmaInscricaoBean.gerarCertificado()}" update=":form:tudo" />
+            <p:dataTable id="tablepessoa" var="pessoa" value="#{confirmaInscricaoBean.participantes}"  paginator="true" rows="10" paginatorPosition="bottom"
+                        
+                         >  
+      
+            <f:facet name="header">  
+              Inscritos  
+            </f:facet>  
+      
+                <p:column  headerText="Nome" filterBy="#{pessoa.nome}"  filterMatchMode="contains">
+                    <h:outputText value="#{pessoa.nome}" />  
+                </p:column>  
+                
+                <p:column headerText="E-mail" filterBy="#{pessoa.email}" filterMatchMode="contains"  >  
+                    <h:outputText value="#{pessoa.email}" />  
+                </p:column>  
+                
+                <p:column headerText="Faculdade">  
+                    <h:outputText value="#{pessoa.instituicao}" />  
+                </p:column>  
+                
+                <p:column headerText="Evento">  
+                    <h:outputText value="#{pessoa.evento.nome}" />  
+                </p:column>  
+                
+                <p:column headerText="Presente">  
+                    
+                    
+                    <p:commandButton value="#{pessoa.status}" action="#{confirmaInscricaoBean.presente()}" update=":form:tudo" >
+                        <f:setPropertyActionListener value="#{pessoa}" target="#{confirmaInscricaoBean.participante}" />
+                    </p:commandButton>
+                </p:column>  
+                                      
+        </p:dataTable>  
+        </p:outputPanel>                     
+           </h:form>
+        </div> 
+    </h:body>
+</html>
+
