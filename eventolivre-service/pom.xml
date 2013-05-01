@@ -4,11 +4,10 @@
     <parent>
     <artifactId>eventolivre</artifactId>
     <groupId>br.com.eventolivre</groupId>
-    <version>1.1.0</version>
+    <version>1.3.2</version>
   </parent>
 
     <artifactId>eventolivre-service</artifactId>
-    <version>1.3.2</version>
     <packaging>ejb</packaging>
 
     <name>eventolivre-service</name>
@@ -23,13 +22,13 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>eventolivre-model</artifactId>
-            <version>${model.version}</version>
+            <version>${project.version}</version>
         </dependency>
         
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>eventolivre-commons</artifactId>
-            <version>${commons.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
 	 <dependency>
