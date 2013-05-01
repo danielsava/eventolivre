@@ -11,9 +11,9 @@
   
    <properties>
     <commons.version>1.1.1</commons.version>
-    <service.version>1.0.0</service.version>
-    <evento.version>1.0.0</evento.version>
-    <model.version>1.1.0</model.version>
+    <service.version>1.1.2</service.version>
+    <evento.version>1.1.1</evento.version>
+    <model.version>1.2.1</model.version>
   </properties>
   <url>https://github.com/otaviojava/eventolivre</url>
   
@@ -35,5 +35,6 @@
     <module>eventolivre-commons</module>
     <module>evento</module>
     <module>eventolivre-service</module>
+    <module>grade</module>
   </modules>
 </project>
